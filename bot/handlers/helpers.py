@@ -7,8 +7,9 @@ def start(bot, update):
 
     start_text = '''
     This is the Yet One Bot Assistant
-    You can see the code here https://github.com/Cuttlerat/yoba
-    by @Cuttlerat
+    You can see the forked code here https://github.com/SimonBorin/yoba
+    maintaining by @blooomberg
+    origin by @Cuttlerat
     '''
     start_text = "\n".join([i.strip() for i in start_text.split('\n')])
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
@@ -19,7 +20,7 @@ def bug(bot, update):
 
     bug_text = '''
     *Found a bug?*
-    Please report it here: https://github.com/Cuttlerat/yoba/issues/new
+    Please report it here: https://github.com/SimonBorin/yoba/issues/new
     '''
     bug_text = "\n".join([i.strip() for i in bug_text.split('\n')])
     bot.send_message(chat_id=update.message.chat_id,
