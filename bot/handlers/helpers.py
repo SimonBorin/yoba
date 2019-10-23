@@ -19,11 +19,15 @@ def start(bot, update):
 def nsfw(bot, update):
     send_typing_action(bot, update)
 
-    url = 'https://www.reddit.com/r/motorcycles/random.json'
-    operUrl = urllib.request.urlopen(url)
-    data = operUrl.read()
-    jsonData = json.loads(data)
-    postUrl = jsonData[0]["data"]["children"][0]["data"]["url"]
+    try:
+        url = 'https://www.reddit.com/r/motorcycles/random.json'
+        operUrl = urllib.request.urlopen(url)
+        data = operUrl.read()
+        jsonData = json.loads(data)
+        postUrl = jsonData[0]["data"]["children"][0]["data"]["url"]
+    except Exception:
+        postUrl='https://www.reddit.com/r/motorcycles/'
+
 
     start_text = '''
     Опять дрочешь? 
@@ -70,7 +74,7 @@ def nsfw(bot, update):
 
     ну или хотяб вот на, почитай.
     А то у вас тут моточат или где?
-    ''' #+ postUrl
+    ''' + postUrl
     start_text = "\n".join([i.strip() for i in start_text.split('\n')])
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
 
