@@ -32,17 +32,7 @@ def nsfw(bot, update):
     start_text = '''
     Опять дрочешь? 
     Иди работай!!
-    
-
-
-
-
-
-
-
-
-
-
+    Йоба на страже нравственности!
 
 
 
@@ -74,7 +64,7 @@ def nsfw(bot, update):
 
     ну или хотяб вот, держи.
     А то у вас тут моточат или где?
-    ''' + postUrl + "\n Йоба на страже нравственности!"
+    ''' + postUrl 
     start_text = "\n".join([i.strip() for i in start_text.split('\n')])
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
 
