@@ -72,7 +72,7 @@ def nsfw(bot, update):
 
 
 
-    ну или хотяб вот на, почитай.
+    ну или хотяб вот, держи.
     А то у вас тут моточат или где?
     ''' + postUrl
     start_text = "\n".join([i.strip() for i in start_text.split('\n')])
