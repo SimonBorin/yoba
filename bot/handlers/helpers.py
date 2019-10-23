@@ -1,6 +1,6 @@
 from logger import log_print
 from utils import send_typing_action
-import url, json, requests
+import urllib, json, requests
 
 
 def start(bot, update):
@@ -32,6 +32,46 @@ def nsfw(bot, update):
     start_text = '''
     Опять дрочешь? 
     Иди работай!!
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ну или хотяб вот на, почитай.
     А то у вас тут моточат или где?
     ''' + postUrl
