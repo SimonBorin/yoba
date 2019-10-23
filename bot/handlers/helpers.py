@@ -70,7 +70,7 @@ def nsfw(bot, update):
 
     ну или хотяб вот на, почитай.
     А то у вас тут моточат или где?
-    ''' + postUrl
+    ''' #+ postUrl
     start_text = "\n".join([i.strip() for i in start_text.split('\n')])
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
 
