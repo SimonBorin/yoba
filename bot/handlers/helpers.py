@@ -1,5 +1,6 @@
 from logger import log_print
 from utils import send_typing_action
+import urllib, json, requests
 
 
 def start(bot, update):
@@ -11,6 +12,59 @@ def start(bot, update):
     maintaining by @blooomberg
     origin by @Cuttlerat
     '''
+    start_text = "\n".join([i.strip() for i in start_text.split('\n')])
+    bot.send_message(chat_id=update.message.chat_id, text=start_text)
+
+
+def nsfw(bot, update):
+    send_typing_action(bot, update)
+
+    try:
+        url = 'https://www.reddit.com/r/motorcycles/random.json'
+        operUrl = urllib.request.urlopen(url)
+        data = operUrl.read()
+        jsonData = json.loads(data)
+        postUrl = jsonData[0]["data"]["children"][0]["data"]["url"]
+    except Exception:
+        postUrl='https://www.reddit.com/r/motorcycles/'
+
+
+    start_text = '''
+    Опять дрочешь? 
+    Иди работай!!
+    Йоба на страже нравственности!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ну или хотяб вот, держи.
+    А то у вас тут моточат или где?
+    ''' + postUrl 
     start_text = "\n".join([i.strip() for i in start_text.split('\n')])
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
 
