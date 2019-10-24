@@ -1,6 +1,7 @@
 from logger import log_print
 from utils import send_typing_action
 import urllib, json, requests
+from bs4 import BeautifulSoup
 
 
 def start(bot, update):
@@ -16,9 +17,19 @@ def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
 
 
+def ibash(bot, update):
+    send_typing_action(bot, update)
+    url = 'http://ibash.org.ru/random.php'
+    operUrl = urllib.request.urlopen(url)
+    data = operUrl.read().decode('cp1251')
+    pretty_data = BeautifulSoup(data)
+    quote = pretty_data.html.body.contents[6].contents[3].string
+    bot.send_message(chat_id=update.message.chat_id, text=quote)
+
+
 def nsfw(bot, update):
     send_typing_action(bot, update)
-
+    
     try:
         url = 'https://www.reddit.com/r/motorcycles/random.json'
         operUrl = urllib.request.urlopen(url)

@@ -25,7 +25,7 @@ from telegram.ext import (
 from config import Config
 from handlers.clash import clash, clash_start, clash_disable, clash_enable, clash_results
 from handlers.db import database_handler
-from handlers.helpers import start, bug, chat_id, nsfw
+from handlers.helpers import start, bug, chat_id, nsfw, ibash
 from handlers.parser import parser
 from handlers.pinger import Pinger
 from handlers.me import me
@@ -85,6 +85,7 @@ def main():
             CommandHandler('chatid', chat_id),
             CommandHandler(['start', 'info'], start),
             CommandHandler('NSFW', nsfw),
+            CommandHandler('ibash', ibash),
             CommandHandler('me', me_handler, pass_args=True),
             CommandHandler('db', db_handler, pass_args=True),
             CommandHandler('ping_add_me', pinger.add_me, pass_args=True),
