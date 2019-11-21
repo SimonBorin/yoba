@@ -1,3 +1,5 @@
+import schedule
+import time
 from logger import log_print
 from utils import send_typing_action
 import urllib, json, requests
@@ -17,14 +19,24 @@ def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=start_text)
 
 
-def ibash(bot, update):
+def booze(bot, update):
     send_typing_action(bot, update)
-    url = 'http://ibash.org.ru/random.php'
-    operUrl = urllib.request.urlopen(url)
-    data = operUrl.read().decode('cp1251')
-    pretty_data = BeautifulSoup(data)
-    quote = pretty_data.html.body.contents[6].contents[3].string
-    bot.send_message(chat_id=update.message.chat_id, text=quote)
+
+    start_text = '''```
+tst
+```'''
+    start_text = "\n".join([i.strip() for i in start_text.split('\n')])
+    bot.send_message(chat_id=update.message.chat_id, text=start_text, parse_mode='markdown')
+
+schedule.every(1).minutes.do(booze)
+# def ibash(bot, update):
+#     send_typing_action(bot, update)
+#     url = 'http://ibash.org.ru/random.php'
+#     operUrl = urllib.request.urlopen(url)
+#     data = operUrl.read().decode('cp1251')
+#     pretty_data = BeautifulSoup(data)
+#     quote = pretty_data.html.body.contents[6].contents[3].string
+#     bot.send_message(chat_id=update.message.chat_id, text=quote)
 
 
 def nsfw(bot, update):

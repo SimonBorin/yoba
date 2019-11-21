@@ -85,7 +85,7 @@ def main():
             CommandHandler('chatid', chat_id),
             CommandHandler(['start', 'info'], start),
             CommandHandler('NSFW', nsfw),
-            CommandHandler('ibash', ibash),
+            # CommandHandler('ibash', ibash),
             CommandHandler('me', me_handler, pass_args=True),
             CommandHandler('db', db_handler, pass_args=True),
             CommandHandler('ping_add_me', pinger.add_me, pass_args=True),
